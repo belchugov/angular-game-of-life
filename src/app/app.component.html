@@ -1,24 +1,45 @@
-<h1>Conway's Game of Life</h1>
+<div class="container">
+  <h1 class="text-center">Conway's Game of Life</h1>
 
-<ol>
-  <li>Generate the grid</li>
-  <li>Set some default width and height</li>
-  <li>Consider using Canvas</li>
-  <li>Add a service to handle the grid state</li>
-</ol>
+  <p>This project goal is to demonstrate the implementation of <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway's Game of Life</a> usning Angular lates version. </p>
+  
+  <div class="row mt-3">
+    <div class="col">
+        <table>
+            <tr *ngFor="let row of grid; let j = index">
+              <td *ngFor="let col of row; let i = index"
+                  (click)="activate(j, i)"
+                  [ngClass]="{'active': col}">
+              </td>
+            </tr>
+          </table>
+    </div>
+  </div>
 
-<table>
-  <tr *ngFor="let row of grid; let j = index">
-    <td *ngFor="let col of row; let i = index"
-        (click)="activate(j, i)"
-        [ngClass]="{'active': col}">
-    </td>
-  </tr>
-</table>
+  <div class="row mt-3">
+    <div class="col">
+        <button type="button" (click)="start()" class="btn btn-success">Start</button>
 
-<button type="button" (click)="start()">Start</button>
-<button type="button" (click)="stop()">Stop</button>
-<button type="button" (click)="clear()">Clear</button>
+        <button type="button" (click)="stop()" class="btn btn-warning">Stop</button>
+        
+        <button type="button" (click)="clear()" class="btn btn-secondary">Clear</button>
 
-Generation count: {{ generation }}
-<router-outlet></router-outlet>
+        Generation count: {{ generation }}
+    </div>
+  </div>
+  
+  <div class="row mt-3">
+    <div class="col">
+        <p>
+            Ideas for improvement:
+          </p>
+          <ol>
+            <li>Add unit tests</li>
+            <li>Separate the game in it's own component</li>
+            <li>Add the ability to set number of rows and columns in the game</li>
+            <li>Consider using inteface for the gird</li>
+            <li>Consider using inteface for the a single cell</li>
+          </ol>
+    </div>
+  </div>
+</div>
