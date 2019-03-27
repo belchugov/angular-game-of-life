@@ -3,10 +3,10 @@ table, th, td {
     border-collapse: collapse;
 }
 
-td {
+/* td {
     width: 15px;
     height: 15px;
-}
+} */
 
 td.active {
     background-color: #000000;

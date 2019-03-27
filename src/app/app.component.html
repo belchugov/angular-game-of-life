@@ -5,7 +5,7 @@
   
   <div class="row mt-3">
     <div class="col">
-        <table>
+        <table class="table text-center">
             <tr *ngFor="let row of grid; let j = index">
               <td *ngFor="let col of row; let i = index"
                   (click)="activate(j, i)"
@@ -19,12 +19,11 @@
   <div class="row mt-3">
     <div class="col">
         <button type="button" (click)="start()" class="btn btn-success">Start</button>
-
         <button type="button" (click)="stop()" class="btn btn-warning">Stop</button>
-        
-        <button type="button" (click)="clear()" class="btn btn-secondary">Clear</button>
-
-        Generation count: {{ generation }}
+        <button type="button" (click)="clear()" class="btn btn-secondary">Clear</button>  
+        <p>
+          Generation count: {{ generation }}
+        </p>
     </div>
   </div>
   

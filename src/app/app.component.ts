@@ -8,8 +8,8 @@ import {Component, OnInit} from '@angular/core';
 export class AppComponent implements OnInit {
   grid;
   col;
-  rowsMax = 10;
-  colMax = 10;
+  rowsMax = 20;
+  colMax = 40;
   generation = 0;
   delay = 500;
   gameTimeout;
