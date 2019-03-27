@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   rowsMax = 10;
   colMax = 10;
   generation = 0;
-  delay = 1000;
+  delay = 500;
   gameTimeout;
 
   createGrid() {
@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
     this.randomizeGrid();
   }
 
-  activate(row, column) {
+  activate(row: number, column: number) {
     this.grid[row][column] = 1;
   }
 
