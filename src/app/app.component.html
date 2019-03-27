@@ -1,3 +1,24 @@
 <h1>Conway's Game of Life</h1>
 
+<ol>
+  <li>Generate the grid</li>
+  <li>Set some default width and height</li>
+  <li>Consider using Canvas</li>
+  <li>Add a service to handle the grid state</li>
+</ol>
+
+<table>
+  <tr *ngFor="let row of grid; let j = index">
+    <td *ngFor="let col of row; let i = index"
+        (click)="activate(j, i)"
+        [ngClass]="{'active': col}">
+    </td>
+  </tr>
+</table>
+
+<button type="button" (click)="start()">Start</button>
+<button type="button" (click)="stop()">Stop</button>
+<button type="button" (click)="clear()">Clear</button>
+
+Generation count: {{ generation }}
 <router-outlet></router-outlet>
