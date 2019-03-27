@@ -60,8 +60,8 @@ export class AppComponent implements OnInit {
   applyGameRules() {
     const copyGrid = this.createGrid();
 
-    for (let row = 1; row < this.rowsMax - 1; row++) {
-      for (let column  = 1; column  < this.colMax - 1; column ++) {
+    for (let row = 0; row < this.rowsMax; row++) {
+      for (let column  = 0; column  < this.colMax; column ++) {
         const totalCells = this.checkSurroundingsCells(this.grid, row, column);
 
         switch (totalCells) {
@@ -81,18 +81,19 @@ export class AppComponent implements OnInit {
     return copyGrid;
   }
 
-  checkSurroundingsCells(grid, row, column) {
+  checkSurroundingsCells(grid, row: number, column: number) {
     let totalCells = 0;
-    totalCells += grid[row - 1][column - 1] || 0;
-    totalCells += grid[row - 1][column] || 0;
-    totalCells += grid[row - 1][column + 1] || 0;
 
-    totalCells += grid[row][column - 1] || 0;
-    totalCells += grid[row][column + 1] || 0;
+    totalCells += grid[(row - 1 + this.rowsMax) % this.rowsMax][(column - 1 + this.colMax) % this.colMax] || 0;
+    totalCells += grid[(row - 1 + this.rowsMax) % this.rowsMax][column] || 0;
+    totalCells += grid[(row - 1 + this.rowsMax) % this.rowsMax][(column + 1 + this.colMax) % this.colMax] || 0;
 
-    totalCells += grid[row + 1][column - 1] || 0;
-    totalCells += grid[row + 1][column] || 0;
-    totalCells += grid[row + 1][column + 1] || 0;
+    totalCells += grid[row][(column - 1 + this.colMax) % this.colMax] || 0;
+    totalCells += grid[row][(column + 1 + this.colMax) % this.colMax] || 0;
+
+    totalCells += grid[(row + 1 + this.rowsMax) % this.rowsMax][(column - 1 + this.colMax) % this.colMax] || 0;
+    totalCells += grid[(row + 1 + this.rowsMax) % this.rowsMax][column] || 0;
+    totalCells += grid[(row + 1 + this.rowsMax) % this.rowsMax][(column + 1 + this.colMax) % this.colMax] || 0;
     return totalCells;
 
   }
